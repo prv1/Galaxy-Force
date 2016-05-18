@@ -16,6 +16,7 @@ class TitleScene : SKScene {
     private var difficultyLabel : UILabel!
     private var difficultyText : UILabel!
     private var textColorHUD = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.0)
+    private var starsTitle : starfield!
     
     override func didMoveToView(view: SKView){
         self.backgroundColor = UIColor.blackColor()
@@ -34,6 +35,9 @@ class TitleScene : SKScene {
         btnPlay.addTarget(self, action: #selector(TitleScene.playTheGame), forControlEvents: UIControlEvents.TouchUpInside)
         self.view?.addSubview(btnPlay)
         
+        starsTitle = starfield()
+        
+        self.addChild(starsTitle)
         
         slider = UISlider(frame: CGRect(x:0, y:250, width: view!.frame.width * 4/5, height: 20))
         slider.minimumValue = 1
@@ -97,6 +101,7 @@ class TitleScene : SKScene {
         difficultyLabel.removeFromSuperview()
         difficultyText.removeFromSuperview()
         slider.removeFromSuperview()
+        starsTitle.removeFromParent()
         
         if let scene = GameScene(fileNamed: "GameScene"){
             let skView = self.view! as SKView

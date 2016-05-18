@@ -12,6 +12,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate { // add SKPhysicsContactDele
     
     var collider = SKSpriteNode?()
     var objectsToRemove = [SKNode]()
+    private var doubleTap : UITapGestureRecognizer! = nil
+    private var upgradeProjectileTap : UITapGestureRecognizer! = nil
     
     
     override func didMoveToView(view: SKView) {
@@ -34,7 +36,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate { // add SKPhysicsContactDele
         hideLabel()
         setupLayers()
         
-        
+        doubleTap = UITapGestureRecognizer(target: self, action: #selector(doubleTapped))
+        doubleTap.numberOfTapsRequired = 3
+        upgradeProjectileTap = UITapGestureRecognizer(target: self, action: #selector(upgrade))
+        upgradeProjectileTap.numberOfTapsRequired = 10
+        view.addGestureRecognizer(upgradeProjectileTap)
+        view.addGestureRecognizer(doubleTap)
         
     }
     
@@ -50,8 +57,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate { // add SKPhysicsContactDele
         
     }
     
+    func doubleTapped() {
+
+        (self.view?.paused != false) ? (self.view?.paused = false) : (self.view?.paused = true) // Pauses game if not paused, unpauses game if paused
+
+    }
     
+    func upgrade () {
+        spawnedPlayer.projectileLevel += 1
+        print("Upgrade Complete")
+        
+    }
     
+
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         touching = false
     }
