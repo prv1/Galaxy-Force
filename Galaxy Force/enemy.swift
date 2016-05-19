@@ -34,7 +34,7 @@ class enemy: character,pTargetable {
         let xSize = texture.size().width*scale                // Create The texture for the top ( visible sprite )
         let ySize = texture.size().height*scale
         let size = CGSize(width: xSize, height: ySize)
-        
+        enemySpeed = Double(arc4random_uniform(UInt32(0.5)) + UInt32(4.25))
         self.physicsBody = SKPhysicsBody(texture: texture, size: size)
         self.physicsBody?.dynamic = true
         self.physicsBody?.affectedByGravity = false            // ( physical body stuff )
@@ -160,7 +160,7 @@ class enemy: character,pTargetable {
             let newBullet = bulletEnemy()
             newBullet.position = CGPoint(x: self.position.x , y: self.position.y)
             objectsLayer.addChild(newBullet)
-            newBullet.physicsBody?.velocity = CGVector(dx: 0, dy: -250)
+            newBullet.physicsBody?.velocity = CGVector(dx: 0, dy: -(Int(arc4random_uniform(25)) + 250))
             newBullet.physicsBody?.affectedByGravity = false
             newBullet.physicsBody?.categoryBitMask = bitMasks.projectileEnemy
             newBullet.physicsBody?.collisionBitMask = 0

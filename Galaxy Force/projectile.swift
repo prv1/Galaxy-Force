@@ -10,7 +10,7 @@ import UIKit
 import SpriteKit
 
 class projectile: SKSpriteNode {
-    
+    private static var emitterProjectile : SKEmitterNode!
     init() {
         let texture = texturesDefault
         super.init(texture: texture, color: SKColor.clearColor(), size: texture.size())   //
@@ -31,6 +31,14 @@ class projectile: SKSpriteNode {
         top.zPosition = layers.projectiles                          // Adds position to object
         self.addChild(top)                                          // add object to scene
     }
+    
+    func addEmitterProjectile(withEmitter: SKEmitterNode) {
+        
+        let emitterProjectile = withEmitter
+        emitterProjectile.zPosition = layers.projectiles
+        self.addChild(emitterProjectile)
+    }
+    
 }
 
 class bulletEnemy: projectile {
@@ -64,13 +72,20 @@ class bulletPlayer: projectile {
     
     override init() {
         super.init()
-        let top = SKTexture(imageNamed: spawnedPlayer.projectileType[spawnedPlayer.projectileLevel])
+        
+        let bulletEmitterPath : NSString = NSBundle.mainBundle().pathForResource("fireball", ofType: "sks")!
+        let bullet = NSKeyedUnarchiver.unarchiveObjectWithFile(bulletEmitterPath as String) as! SKEmitterNode
+        
+        //let top = SKTexture(imageNamed: spawnedPlayer.projectileType[spawnedPlayer.projectileLevel])
+        let top = SKTexture(imageNamed: "empty")
         self.physicsBody = SKPhysicsBody(texture: top, size: top.size())
         self.name = "projectile"
         self.physicsBody?.categoryBitMask = bitMasks.projectile  // ship
         self.physicsBody?.contactTestBitMask = bitMasks.enemy
         self.physicsBody?.collisionBitMask = 0
         self.addTop(top)
+        self.addChild(bullet)
+        //self.addEmitterProjectile(bullet)
         
     }
     

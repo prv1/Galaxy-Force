@@ -81,10 +81,10 @@ class player: character,pTargetable {
         newBullet.physicsBody?.contactTestBitMask = bitMasks.enemy
         newBullet.position = CGPoint(x: self.position.x + 10, y: self.position.y)
         let moveForward = SKAction.moveToY(800, duration: Double(projectileSpeed[projectileLevel]))
-        
+        let force = SKAction.applyForce(CGVector(dx: 0, dy: 1200), duration: 2.5)
         let destroy = SKAction.removeFromParent()
-        
-        newBullet.runAction(SKAction.sequence([moveForward,destroy]))
+        //newBullet.physicsBody?.velocity = CGVector(dx: 0, dy: (Int(arc4random_uniform(25)) + 12250))
+        newBullet.runAction(SKAction.sequence([moveForward, force, destroy]))
         objectsLayer.addChild(newBullet)
         
     }

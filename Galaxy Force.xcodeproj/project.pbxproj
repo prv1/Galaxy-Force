@@ -25,6 +25,7 @@
 		D97252FF1CECAF2400C8BAA4 /* TitleScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97252FE1CECAF2400C8BAA4 /* TitleScene.swift */; };
 		D97253021CECB07F00C8BAA4 /* explosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = D97253001CECB07F00C8BAA4 /* explosion.sks */; };
 		D97253031CECB07F00C8BAA4 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = D97253011CECB07F00C8BAA4 /* spark.png */; };
+		D97253061CED34AB00C8BAA4 /* fireball.sks in Resources */ = {isa = PBXBuildFile; fileRef = D97253051CED34AB00C8BAA4 /* fireball.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		D97252FE1CECAF2400C8BAA4 /* TitleScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleScene.swift; sourceTree = "<group>"; };
 		D97253001CECB07F00C8BAA4 /* explosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = explosion.sks; sourceTree = "<group>"; };
 		D97253011CECB07F00C8BAA4 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		D97253051CED34AB00C8BAA4 /* fireball.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = fireball.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 		D97252D51CECAC7D00C8BAA4 /* Galaxy Force */ = {
 			isa = PBXGroup;
 			children = (
+				D97253041CED346500C8BAA4 /* particles */,
 				D97252D61CECAC7D00C8BAA4 /* AppDelegate.swift */,
 				D97252D81CECAC7D00C8BAA4 /* GameScene.sks */,
 				D97252DA1CECAC7D00C8BAA4 /* GameScene.swift */,
@@ -101,6 +104,14 @@
 				D97253011CECB07F00C8BAA4 /* spark.png */,
 			);
 			path = "Galaxy Force";
+			sourceTree = "<group>";
+		};
+		D97253041CED346500C8BAA4 /* particles */ = {
+			isa = PBXGroup;
+			children = (
+				D97253051CED34AB00C8BAA4 /* fireball.sks */,
+			);
+			name = particles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,6 +177,7 @@
 				D97252E51CECAC7D00C8BAA4 /* LaunchScreen.storyboard in Resources */,
 				D97252E21CECAC7D00C8BAA4 /* Assets.xcassets in Resources */,
 				D97253031CECB07F00C8BAA4 /* spark.png in Resources */,
+				D97253061CED34AB00C8BAA4 /* fireball.sks in Resources */,
 				D97253021CECB07F00C8BAA4 /* explosion.sks in Resources */,
 				D97252FD1CECAF1400C8BAA4 /* TitleScene.sks in Resources */,
 				D97252E01CECAC7D00C8BAA4 /* Main.storyboard in Resources */,
